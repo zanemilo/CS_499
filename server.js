@@ -12,6 +12,9 @@ const vocabulary = JSON.parse(fs.readFileSync(vocabularyPath, 'utf8'));
 const recipesPath = path.join(__dirname, 'data', 'recipes.json');
 const recipes = JSON.parse(fs.readFileSync(recipesPath, 'utf8'));
 
+// Temp Middleware: parse incoming JSON (for frontend using fetch with JSON)
+app.use(express.json());
+
 // Middleware: serve static files from "public" folder
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -41,10 +44,6 @@ app.post('/api/search', (req, res) => {
 
   res.json({ recipes: topRecipes });
 });
-
-
-// Optional: parse incoming JSON (if your frontend uses fetch with JSON)
-app.use(express.json());
 
 // Example API route
 app.get('/api/test', (req, res) => {
