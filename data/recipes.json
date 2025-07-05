@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Garlic Chicken Stir-Fry",
+        "ingredients": ["chicken", "garlic", "carrot", "onion", "soy sauce"],
+        "vector": [1,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],
+        "instructions": "Cook chicken with garlic and onion. Add carrots and soy sauce. Stir-fry until cooked through.",
+        "tags": ["dinner", "high-protein"]
+    },
+    {
+        "name": "Tofu Veggie Bowl",
+        "ingredients": ["tofu", "zucchini", "carrot", "bell pepper", "soy sauce", "rice"],
+        "vector": [0,0,0,1,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],
+        "instructions": "Grill tofu and sauté vegetables. Combine with rice and soy sauce in a bowl.",
+        "tags": ["vegan", "gluten-free"]
+    },
+    {
+        "name": "Beef and Broccoli",
+        "ingredients": ["beef", "broccoli", "soy sauce", "garlic", "onion", "rice"],
+        "vector": [0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0],
+        "instructions": "Cook beef with garlic and onion. Add broccoli and soy sauce. Serve with rice.",
+        "tags": ["dinner", "classic"]
+    },
+    {
+        "name": "Spaghetti with Tomato Basil Sauce",
+        "ingredients": ["pasta", "tomato", "olive oil", "garlic", "basil", "salt", "black pepper"],
+        "vector": [0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,0,1,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0],
+        "instructions": "Cook pasta. In another pan, sauté garlic in olive oil, add tomatoes, and season with basil, salt, and pepper. Combine with pasta.",
+        "tags": ["vegetarian", "italian", "dinner"]
+    },
+    {
+        "name": "Cheddar Scrambled Eggs",
+        "ingredients": ["egg", "milk", "cheddar cheese", "butter", "salt", "black pepper"],
+        "vector": [0,0,0,0,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0],
+        "instructions": "Beat eggs with milk and seasoning. Cook in buttered pan, stirring in cheddar cheese until fluffy.",
+        "tags": ["breakfast", "vegetarian", "quick"]
+    },
+    {
+        "name": "Pork Stir-Fry with Bell Pepper",
+        "ingredients": ["pork", "bell pepper", "onion", "soy sauce", "ginger", "garlic"],
+        "vector": [0,0,1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0],
+        "instructions": "Sauté pork with garlic and ginger. Add onions and bell pepper, stir in soy sauce and cook until done.",
+        "tags": ["dinner", "asian"]
+    },
+    {
+        "name": "Tofu Spinach Curry",
+        "ingredients": ["tofu", "spinach", "onion", "garlic", "cumin", "coriander", "chili powder"],
+        "vector": [0,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0],
+        "instructions": "Cook onion and garlic, add spices, then tofu and spinach. Simmer until tender.",
+        "tags": ["vegan", "gluten-free", "dinner", "indian"]
+    },
+    {
+        "name": "Vegetable Omelette",
+        "ingredients": ["egg", "milk", "onion", "tomato", "bell pepper", "cheddar cheese", "salt", "black pepper"],
+        "vector": [0,0,0,0,1,1,1,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0],
+        "instructions": "Beat eggs with milk, season, add vegetables and cheese. Cook in pan until set.",
+        "tags": ["breakfast", "vegetarian", "quick"]
+    },
+    {
+        "name": "Honey Lemon Yogurt Parfait",
+        "ingredients": ["yogurt", "honey", "lemon juice"],
+        "vector": [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1],
+        "instructions": "Mix yogurt with lemon juice and honey. Chill and serve.",
+        "tags": ["breakfast", "vegetarian", "dessert", "quick"]
+    },
+    {
+        "name": "Broccoli Cheddar Soup",
+        "ingredients": ["broccoli", "cheddar cheese", "milk", "onion", "flour", "butter", "salt", "black pepper"],
+        "vector": [0,0,0,0,0,1,1,0,1,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0],
+        "instructions": "Make roux with butter and flour, add milk, broccoli, onion, and cheddar. Cook until thick.",
+        "tags": ["vegetarian", "soup", "comfort food"]
+    }
+]
