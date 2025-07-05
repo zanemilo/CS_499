@@ -5,7 +5,6 @@ const fs = require('fs'); // Node.js file system module to read files
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
 const vocabularyPath = path.join(__dirname, 'data', 'vocabulary.json');
 const vocabulary = JSON.parse(fs.readFileSync(vocabularyPath, 'utf8'));
 
