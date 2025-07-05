@@ -17,6 +17,10 @@ app.use(express.json());
 // Middleware: serve static files from "public" folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Middleware: serve static files from "data" folder
+app.use('/data', express.static(path.join(__dirname, 'data')));
+
+
 // Middleware: parse incoming JSON (frontend uses fetch with JSON)
 app.post('/api/search', (req, res) => {
   const selectedIngredients = req.body.ingredients || [];
