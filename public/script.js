@@ -1,43 +1,39 @@
-// script.js
-
-const ingredients = [
-  "chicken", "beef", "pork", "tofu", "egg", "milk",
-  "cheddar cheese", "mozzarella", "butter", "olive oil",
-  "onion", "garlic", "carrot", "celery", "bell pepper",
-  "tomato", "spinach", "mushroom", "broccoli", "zucchini",
-  "potato", "rice", "pasta", "bread", "flour", "sugar",
-  "salt", "black pepper", "soy sauce", "vinegar", "basil",
-  "oregano", "cumin", "chili powder", "coriander", "ginger",
-  "lemon juice", "honey", "brown sugar", "yogurt"
-];
-
-
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const form = document.getElementById("ingredient-form");
+  const resultsDiv = document.getElementById("results");
 
-  // Clear out any hardcoded selects first (if needed)
+  let ingredients = [];
+
+  // Load vocabulary.json dynamically
+  try {
+    const res = await fetch('/data/vocabulary.json');
+    ingredients = await res.json();
+  } catch (err) {
+    console.error("Failed to load vocabulary:", err);
+    resultsDiv.innerHTML = "<p>Error loading ingredients list.</p>";
+    return;
+  }
+
+  // Clear out any hardcoded selects first
   form.querySelectorAll('select, label, br').forEach(el => el.remove());
 
+  // Create 6 dropdowns
   for (let i = 1; i <= 6; i++) {
-    // Create label
     const label = document.createElement("label");
     label.setAttribute("for", `ingredient-select-${i}`);
     label.textContent = `Choose ingredient ${i}:`;
 
-    // Create select
     const select = document.createElement("select");
     select.id = `ingredient-select-${i}`;
     select.name = `ingredient${i}`;
     if (i === 1) select.required = true;
 
-    // Default option
     const defaultOption = document.createElement("option");
     defaultOption.disabled = true;
     defaultOption.selected = true;
     defaultOption.textContent = "Select an ingredient";
     select.appendChild(defaultOption);
 
-    // Populate options from list
     ingredients.forEach(item => {
       const opt = document.createElement("option");
       opt.value = item;
@@ -45,10 +41,50 @@ document.addEventListener("DOMContentLoaded", () => {
       select.appendChild(opt);
     });
 
-    // Insert before submit button
     const submitButton = form.querySelector('button[type="submit"]');
     form.insertBefore(label, submitButton);
     form.insertBefore(select, submitButton);
     form.insertBefore(document.createElement("br"), submitButton);
+  }
+
+  // Submit handler
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const selectedIngredients = [];
+    for (let i = 1; i <= 6; i++) {
+      const value = document.getElementById(`ingredient-select-${i}`).value;
+      if (value) selectedIngredients.push(value);
+    }
+
+    try {
+      const res = await fetch("/api/search", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ingredients: selectedIngredients }),
+      });
+
+      const data = await res.json();
+      displayResults(data.recipes);
+    } catch (err) {
+      console.error("Search request failed:", err);
+      resultsDiv.innerHTML = "<p>Error retrieving recipe results.</p>";
+    }
+  });
+
+  function displayResults(recipes) {
+    resultsDiv.innerHTML = ""; // Clear previous
+
+    if (!recipes.length) {
+      resultsDiv.textContent = "No matching recipes found.";
+      return;
+    }
+
+    recipes.forEach(r => {
+      const div = document.createElement("div");
+      div.className = "recipe-result";
+      div.innerHTML = `<strong>${r.name}</strong> (Score: ${r.score})`;
+      resultsDiv.appendChild(div);
+    });
   }
 });
