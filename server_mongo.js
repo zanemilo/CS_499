@@ -1,5 +1,5 @@
 // server_mongo.js
-require('dotenv').config(); // Load environment variables
+
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public'))); // Serve static files
 app.use('/data', express.static(path.join(__dirname, 'data'))); // Serve data files
 
 // Connect to MongoDB
-const { MONGODB_URI } = process.env;
+const MONGODB_URI = 'mongodb://127.0.0.1:27017/recipe_rec';
 connectDB(MONGODB_URI);
 
 // --- Helpers ---

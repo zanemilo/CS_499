@@ -1,5 +1,4 @@
 // seed.js
-require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const connectDB = require('./server/config/db');
@@ -9,8 +8,8 @@ const vocabularyPath = path.join(__dirname, 'data', 'vocabulary.json');
 const recipesPath = path.join(__dirname, 'data', 'recipes.json');
 
 (async () => {
-  const { MONGODB_URI } = process.env;
-  await connectDB(MONGODB_URI);
+  const MONGODB_URI = 'mongodb://127.0.0.1:27017/recipe_rec';
+await connectDB(MONGODB_URI);
 
   const vocabulary = JSON.parse(fs.readFileSync(vocabularyPath, 'utf8'));
   const recipes = JSON.parse(fs.readFileSync(recipesPath, 'utf8'));
