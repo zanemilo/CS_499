@@ -74,7 +74,7 @@ app.post('/api/search', async (req, res) => {
             .sort((a, b) => b.score - a.score)
             .slice(0, 50);
 
-        res.json({ results: scored, count: scored.length });
+        res.json({ results: scored});
     } catch (e) {
         res.status(500).json({ error: e.message });
     }

@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
 
       const data = await res.json();
-      displayResults(data.recipes);
+      displayResults(data.results  || []);
     } catch (err) {
       console.error("Search request failed:", err);
       resultsDiv.innerHTML = "<p>Error retrieving recipe results.</p>";
