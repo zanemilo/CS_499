@@ -34,9 +34,9 @@ const recipesPath = path.join(__dirname, 'data', 'recipes.json');
   }
 
   const count = await Recipe.countDocuments();
-  console.log(`✅ Seeding complete. Recipes in DB: ${count}`);
+  console.log(`Seeding complete. Recipes in DB: ${count}`);
   process.exit(0);
 })().catch(err => {
-  console.error('❌ Seed failed:', err);
+  console.error('Seed failed:', err);
   process.exit(1);
 });
