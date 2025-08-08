@@ -4,7 +4,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "start:mongo": "node server_mongo.js",
+    "seed": "node seed.js"
   },
   "keywords": [],
   "author": "",
