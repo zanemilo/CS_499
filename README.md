@@ -2,22 +2,31 @@
 
 ## Overview
 
-This is a full-stack web application that recommends recipes based on user-selected ingredients. It is built with:
-- **Express.js** (Node.js backend)
-- **HTML & CSS** frontend
-- **MongoDB** for data storage (in progress)
+This is a full-stack web application that recommends recipes based on user-selected ingredients.  
+It is built with:
 
-The goal is to allow users to input ingredients they have on hand and receive matching recipes based on an optimized binary vector filtering algorithm.
+- **Express.js** (Node.js backend)  
+- **HTML, CSS, and JavaScript** frontend  
+- **MongoDB** for recipe and vocabulary storage  
+
+The application allows users to input ingredients they have on hand and receive matching recipes based on a **binary vector similarity** algorithm using the dot product method.  
+It was developed as part of my **CS-499 Capstone Project** at Southern New Hampshire University and showcases enhancements in:
+
+- **Software Design and Engineering**
+- **Algorithms and Data Structures**
+- **Databases**
 
 ---
 
 ## Features
 
-- Ingredient-based recipe matching using binary vector similarity
-- Modular backend design with clearly defined routes
+- Ingredient-based recipe matching using **binary vector similarity**
+- Modular backend architecture with separated routes, controllers, and utilities
+- MongoDB integration for scalable and flexible data storage
+- API-driven recipe retrieval with consistent schema validation
+- Professional README with setup instructions
 - Minimalist, user-friendly frontend interface
-- Scalable structure for future enhancements (e.g., authentication, image support)
-- Currently uses local JSON for recipes; MongoDB integration planned
+- Ready for future enhancements (authentication, images, instructions)
 
 ---
 
@@ -27,30 +36,36 @@ The goal is to allow users to input ingredients they have on hand and receive ma
 |--------------|--------------------|
 | Frontend     | HTML, CSS, JavaScript |
 | Backend      | Node.js, Express.js |
-| Database     | MongoDB (planned) |
-| Data Format  | JSON (skeleton data during development) |
+| Database     | MongoDB with Mongoose |
+| Data Format  | JSON (seed data)    |
 
 ---
 
 ## Installation
 
-1. Clone the repository:
+1. **Clone the repository**
    ```bash
    git clone https://github.com/yourusername/recipe-rec-app.git
    cd recipe-rec-app
    ```
 
-2. Install dependencies:
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. Start the server:
+3. **Seed the database**
+   ```bash
+   node seed.js
+   ```
+   This will populate MongoDB with recipe and vocabulary data.
+
+4. **Start the server**
    ```bash
    node server.js
    ```
 
-4. Open your browser and visit:
+5. **Open in browser**
    ```
    http://localhost:3000
    ```
@@ -62,12 +77,18 @@ The goal is to allow users to input ingredients they have on hand and receive ma
 ```
 recipe-rec-web-app/
 ├── data/
-│   └── vocabulary.json          # Ingredient vocabulary (used for vectorization)
+│   ├── vocabulary.json          # Ingredient vocabulary for vectorization
+│   └── recipes.json              # Base recipe data (used for seeding)
 ├── public/
 │   ├── index.html               # Frontend UI
 │   ├── style.css                # UI styling
 │   └── script.js                # Client-side logic
+├── routes/                      # API route definitions
+├── controllers/                 # Route handlers and logic
+├── models/                      # Mongoose schemas for recipes/vocabulary
+├── utils/                        # Helper functions (e.g., vectorization)
 ├── server.js                    # Main backend server
+├── seed.js                      # Database seeding script
 ├── package.json                 # Dependencies and metadata
 ```
 
@@ -75,23 +96,23 @@ recipe-rec-web-app/
 
 ## Current Status
 
-| Component        | Status                            |
-|------------------|-----------------------------------|
-| App Architecture | Modularized and functional      |
-| Vector Algorithm | Implemented and working         |
-| Frontend UI      | Basic version implemented       |
-| MongoDB DB       | Planned for next enhancement    |
-| Documentation    | Draft in progress               |
+| Component        | Status                  |
+|------------------|-------------------------|
+| App Architecture | Modularized and deployed-ready |
+| Vector Algorithm | Implemented and optimized |
+| MongoDB DB       | Integrated and functional |
+| Frontend UI      | Basic functional version |
+| Documentation    | Complete for deployment |
 
 ---
 
 ## Future Enhancements
 
-- Integrate MongoDB with recipe schema and query logic
-- Add recipe card components with images and instructions
-- Enhance mobile responsiveness and interactivity
-- Include unit testing and validation
-- Polish documentation and ePortfolio walkthrough
+- Add recipe images and detailed instructions
+- Implement user authentication for saved favorites
+- Expand search to support partial matches and weighting
+- Improve mobile responsiveness and accessibility
+- Add automated tests and validation
 
 ---
 
@@ -100,10 +121,11 @@ recipe-rec-web-app/
 **Zane Milo Deso**  
 Southern New Hampshire University  
 Capstone Project – CS-499  
+
 [LinkedIn](https://www.linkedin.com/in/zanedeso) | [GitHub](https://github.com/zanemilo)
 
 ---
 
 ## License
 
-This project is licensed under the MIT License
+This project is licensed under the MIT License.
